@@ -12,6 +12,7 @@ const q = [
 ];
 const cells = document.getElementById("cells");
 const score = document.getElementById("time");
+const clearnum = document.getElementById("clear");
 let start = new Date();
 const correct = new Audio('sound/correct.mp3');
 const wrong = new Audio('sound/wrong.mp3');

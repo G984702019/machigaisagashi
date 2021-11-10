@@ -3,13 +3,21 @@
 <head>
     <meta charset="utf-8">
     <title>間違い探しゲーム！</title>
+    <style>
+      body{
+        text-align: center;
+      }
+    </style>
 </head>
 <body>
     <h1>間違い探しゲーム！</h1>
+    <input type="number" value="5" id="max" min="1">
     <div class="score">
         Time:
         <span id="time">0</span>
+        <span id="clear"> </span>
     </div>
+    <br>
     <button type="button" onclick="init()">ゲーム開始</button>
     <div id="cells"></div>
 
