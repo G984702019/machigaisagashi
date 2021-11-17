@@ -23,5 +23,14 @@
 
     <script src="js/init.js"></script>
     <script src="js/game.js"></script>
+    <script src="ncmb_js-3.1.2/ncmb.min.js"></script>
+    <script>
+    const APPLICATION_KEY = "17f7a2feeb650f8f05934b9759363d2068fb848ed14fc9951cc3445829d0dec3";
+    const CLIENT_KEY = "f0765fa1804da5b03ce2cee38074c4d30382393631f5a015c93229675ccf4e98";
+    const ncmb = new NCMB(APPLICATION_KEY,CLIENT_KEY);
+    const DBName = "ClearTime";
+
+    let ClearTime = ncmb.DataStore(DBName);
+    </script>
 </body>
 </html>

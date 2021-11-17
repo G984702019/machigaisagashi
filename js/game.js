@@ -35,9 +35,12 @@ function gameStart() {
         clearnum.textContent="clear:"+clear;
         if(clear<MAX){
           gameStart();
-        }else{
+        }else{  //ゲームクリア
           alert("Game Clear!!");
           clearTimeout(timer);
+          console.log("time:"+score.textContent);
+          let time=parseInt(score.textContent);
+          load(time);
         }
       }else{
         wrong.play();
@@ -60,4 +63,48 @@ function time() {
   let time = parseInt((now.getTime()-start.getTime())/1000);
   score.textContent=time;
   timer=setTimeout("time()",1000);
+}
+/*function firstsave(){
+  let test = new ClearTime();
+  let key = "time";
+  test.set(key,null);
+  test.save()
+    .then(function(){
+      console.log("成功");
+    })
+    .catch(function(err){
+      console.log("エラー発生:"+err);
+    });
+}*/
+function save(time){
+  let test = new ClearTime();
+  let key = "time";
+  test.set(key,parseInt(time));
+  test.save()
+    .then(function(){
+      console.log("成功");
+    })
+    .catch(function(err){
+      console.log("エラー発生:"+err);
+    });
+}
+function load(score){
+  ClearTime
+  .order("time")
+  .fetchAll()
+    .then(function(result){
+      let min=result[0].time;
+      if(min>score){
+        alert("ハイスコア！！");
+        save(score);
+      }else{
+        save(score);
+      }
+
+    })
+    .catch(function(err){
+      alert("ハイスコア");
+      save(score);
+    });
+
 }
